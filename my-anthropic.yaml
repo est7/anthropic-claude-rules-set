@@ -8,6 +8,7 @@ payload:
   - DOMAIN-SUFFIX,clau.de
   - DOMAIN-SUFFIX,claudemcpclient.com
   - DOMAIN-SUFFIX,claudeusercontent.com
+  - DOMAIN-SUFFIX,iplark.com
 
   # CDN 和静态资源
   - DOMAIN,cdn.anthropic.com
