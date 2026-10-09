@@ -26,12 +26,12 @@ function main(config) {
   const oldRules = config["rules"] || [];
   config["rules"] = prependRules.concat(oldRules);
 
-  // 自定义 providers 放在前面：先铺自定义，再合并旧的（旧的同名不会覆盖自定义）
+  // Merge existing providers first so custom providers win on name conflicts.
   const oldRuleProviders = config["rule-providers"] || {};
   config["rule-providers"] = Object.assign(
     {},
-    prependRuleProviders,
     oldRuleProviders,
+    prependRuleProviders,
   );
 
   return config;
