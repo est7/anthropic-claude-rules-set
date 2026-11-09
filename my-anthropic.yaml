@@ -9,7 +9,19 @@ payload:
   - DOMAIN-SUFFIX,claudemcpclient.com
   - DOMAIN-SUFFIX,claudemcpcontent.com
   - DOMAIN-SUFFIX,claudeusercontent.com
+  - DOMAIN-SUFFIX,ant.dev
+  - DOMAIN-SUFFIX,claude.app
+  - DOMAIN-SUFFIX,claude.dev
+  - DOMAIN-SUFFIX,claude.new
+  - DOMAIN-SUFFIX,claude.site
+  - DOMAIN-SUFFIX,claudepages.dev
+  - DOMAIN-SUFFIX,claudestudio.com
+  - DOMAIN-SUFFIX,claudeacademy.com
+  - DOMAIN-SUFFIX,chatbotclaude.com
+  - DOMAIN-SUFFIX,anthropic.team
+  - DOMAIN-SUFFIX,antspace.dev
   - DOMAIN-SUFFIX,iplark.com
+  - DOMAIN-SUFFIX,net.coffee
 
   # CDN 和静态资源
   - DOMAIN,cdn.anthropic.com
@@ -19,11 +31,36 @@ payload:
   # 认证 / 内容
   - DOMAIN,anthropic.auth0.com
   - DOMAIN,anthropic-com.ghost.io
+  - DOMAIN,claude.fedstart.com
 
   # 监控和遥测
   - DOMAIN-SUFFIX,sentry.io
+  - DOMAIN-SUFFIX,sentry.dev
+  - DOMAIN-SUFFIX,sentry-cdn.com
+  - DOMAIN-SUFFIX,getsentry.com
+  - DOMAIN,o1158394.ingest.us.sentry.io
   - DOMAIN-SUFFIX,statsigapi.net
-  - DOMAIN,browser-intake-us5-datadoghq.com
+  - DOMAIN-SUFFIX,statsig.com
+  - DOMAIN-SUFFIX,statsigcdn.com
+  - DOMAIN-SUFFIX,featuregates.org
+  - DOMAIN-SUFFIX,featureassets.org
+  - DOMAIN-SUFFIX,assetsconfigcdn.org
+  - DOMAIN-SUFFIX,prodregistryv2.org
+  - DOMAIN-SUFFIX,beyondwickedmapping.org
+  - DOMAIN,cdn.growthbook.io
+  - DOMAIN-SUFFIX,intellimize.co
+  - DOMAIN-SUFFIX,intellimizeio.com
+  - DOMAIN-SUFFIX,datadoghq.com
+  - DOMAIN-SUFFIX,browser-intake-datadoghq.com
+  - DOMAIN-SUFFIX,browser-intake-us3-datadoghq.com
+  - DOMAIN-SUFFIX,browser-intake-us5-datadoghq.com
+  - DOMAIN-SUFFIX,browser-intake-ap1-datadoghq.com
+  - DOMAIN-SUFFIX,browser-intake-ap2-datadoghq.com
+  - DOMAIN-SUFFIX,browser-intake-datadoghq.eu
+  - DOMAIN-SUFFIX,browser-intake-ddog-gov.com
+  - DOMAIN,http-intake.logs.us5.datadoghq.com
+  - DOMAIN-SUFFIX,sift.com
+  - DOMAIN-SUFFIX,siftscience.com
   - DOMAIN-KEYWORD,datadog
   - DOMAIN-KEYWORD,sentry
   - DOMAIN-KEYWORD,sift
@@ -31,16 +68,37 @@ payload:
   # 客服 / 第三方 widget
   - DOMAIN-SUFFIX,intercom.io
   - DOMAIN-SUFFIX,intercomcdn.com
+  - DOMAIN-SUFFIX,intercomcdn.eu
+  - DOMAIN-SUFFIX,intercomassets.com
+  - DOMAIN-SUFFIX,intercomassets.eu
+  - DOMAIN-SUFFIX,intercomusercontent.com
+  - DOMAIN-SUFFIX,intercom.help
+  - DOMAIN-SUFFIX,intercom-sheets.com
+  - DOMAIN-SUFFIX,intercom-reporting.com
+  - DOMAIN-SUFFIX,intercom-attachments.com
+  - DOMAIN-SUFFIX,intercom-attachments.eu
+  - DOMAIN,mcp.intercom.com
+  - DOMAIN-KEYWORD,intercom
   - DOMAIN,cdn.usefathom.com
+
+  # WebRTC STUN 走家宽出口 (防止暴露真实 IP 或机房 IP)
+  - DOMAIN-KEYWORD,stun
+  - AND,((NETWORK,UDP),(DST-PORT,3478))
+  - AND,((NETWORK,UDP),(DST-PORT,19302))
+  - AND,((NETWORK,UDP),(DST-PORT,5349))
 
   # 客户端进程匹配
   - PROCESS-NAME,Claude
+  - PROCESS-NAME,claude.exe
   - PROCESS-NAME,Claude Helper
   - PROCESS-NAME,Claude Helper (GPU)
   - PROCESS-NAME,Claude Helper (Renderer)
   - PROCESS-NAME,Claude Helper (Plugin)
+  - PROCESS-NAME,claude bg-spare
+  - PROCESS-NAME,claude bg-pty-host
 
   # IP 段 / ASN 兜底
+  - IP-CIDR,153.61.224.0/22,no-resolve
   - IP-CIDR,160.79.104.0/21,no-resolve
   - IP-CIDR6,2607:6bc0::/32,no-resolve
   - IP-ASN,399358,no-resolve
